@@ -13,22 +13,6 @@ const startOrderTimer = (orderId) => {
   }, 10000); // 60,000 ms = 1 minute
 };
 
-// Function to mark an order as completed
-// const markOrderAsCompleted = async (orderId) => {
-//   if (orders.has(orderId)) {
-//     const order = orders.get(orderId);
-//     if (order.status === 'Pending') {
-//       order.status = 'Completed';
-//       orders.set(orderId, order);
-//       console.log(`Order ${orderId} marked as completed.`);
-//       // Notify via RabbitMQ or any other means
-//       sendMessage('order_completed', { orderId: orderId });
-//     }
-//     else {
-//       return { success: false, message: `Delivery with orderId ${orderId} not found` };
-//     }
-//   }
-// };
 
 const markOrderAsCompleted = async (orderId) => {
   try {
