@@ -36,7 +36,7 @@ const sendMessage = async (queue, message) => {
 };
 
 const consumeMessages = async (queue, callback) => {
-  const channel = getChannel();  // Make sure you have a reference to the channel here
+  const channel = getChannel(); 
   
   await channel.consume(queue, async (msg) => {
     const { orderId, status, address, items } = JSON.parse(msg.content.toString());
@@ -55,14 +55,14 @@ const consumeMessages = async (queue, callback) => {
   });
 };
 
-// Example usage
+
 const startConsumer = async () => {
-  await connectRabbitMQ();  // Ensure RabbitMQ is connected before consuming messages
-  const queue = 'order_created';  // Replace with your actual queue name
+  await connectRabbitMQ();  
+  const queue = 'order_created';  
   await consumeMessages(queue);
 };
 
-// Start the consumer
+
 startConsumer().catch(console.error);
 
 module.exports = {
